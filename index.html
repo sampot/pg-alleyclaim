@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="theme-color" content="#09071b" />
+    <meta name="description" content="八回合的台味巷弄地盤戰：暗中出牌、同時揭曉、串起你的勢力路線。" />
+    <title>巷弄地盤 Alley Claim</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="city-glow" aria-hidden="true"></div>
+    <main>
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">ALLEY CLAIM · 里民限定</p>
+          <h1>巷弄地盤</h1>
+        </div>
+        <button id="sound-toggle" class="sound" type="button" aria-pressed="true">♪ 音效開</button>
+      </header>
+
+      <section id="lobby" class="panel lobby">
+        <div class="sign">
+          <span>今</span><span>晚</span><span>喬</span><span>地</span><span>盤</span>
+        </div>
+        <p class="kicker">5×5 街區 · 3 方角力 · 8 回合</p>
+        <h2>一條巷子，三種盤算</h2>
+        <p>暗中選一枚影響力與目標。一起掀牌，比投入、借隔壁聲勢；輸家只是撤回，下一回合還能再來。</p>
+        <div class="mini-rules">
+          <div><b>市 2</b><span>市場</span></div>
+          <div><b>廟 2</b><span>廟口</span></div>
+          <div><b>園 1</b><span>公園</span></div>
+          <div><b>警 1</b><span>派出所</span></div>
+        </div>
+        <button id="start-button" class="primary big" type="button">拉開鐵門，開戰！</button>
+        <p class="best">本機最高總分 <strong id="best-score">0</strong></p>
+      </section>
+
+      <section id="game" hidden>
+        <div class="hud">
+          <div><span>回合</span><strong id="turn-value">1 / 8</strong></div>
+          <div><span>你的分數</span><strong id="score-value">0</strong></div>
+          <div><span>本回得分</span><strong id="gain-value">+0</strong></div>
+        </div>
+
+        <section class="panel rivals" aria-label="勢力分數">
+          <div class="rival player"><i></i><span>你</span><strong id="player-score">0</strong></div>
+          <div class="rival red"><i></i><span>紅燈阿伯</span><strong id="red-score">0</strong></div>
+          <div class="rival blue"><i></i><span>藍衫里長</span><strong id="blue-score">0</strong></div>
+        </section>
+
+        <section class="board-wrap panel">
+          <div class="neon-sign" aria-hidden="true">巷 口</div>
+          <div id="board" class="board" role="grid" aria-label="五乘五巷弄地圖"></div>
+          <div class="scooters" aria-hidden="true">🛵　🏮　🛵</div>
+        </section>
+
+        <section class="panel planner">
+          <div class="section-title">
+            <div><p class="kicker">暗中布局</p><h2>這回合出哪招？</h2></div>
+            <span id="target-label">先點一格</span>
+          </div>
+          <fieldset>
+            <legend>選影響力</legend>
+            <div id="piece-picker" class="piece-picker"></div>
+          </fieldset>
+          <label id="assembly-label" class="assembly">
+            <input id="assembly" type="checkbox" />
+            <span><b>里民大會</b><small>限一次：本回合相鄰支援加倍</small></span>
+          </label>
+          <p id="message" class="message" role="status">點地圖，再選一枚影響力。</p>
+          <button id="reveal-button" class="primary big" type="button" disabled>三方同時揭曉！</button>
+        </section>
+      </section>
+
+      <section id="result-sheet" class="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="result-title">
+        <div class="sheet-card">
+          <p id="result-kicker" class="kicker"></p>
+          <h2 id="result-title"></h2>
+          <div id="result-content"></div>
+          <button id="continue-button" class="primary big" type="button"></button>
+        </div>
+      </section>
+
+      <footer>
+        <button id="how-button" class="text-button" type="button">玩法／素材</button>
+        <span>Playgrounds · Sampot</span>
+      </footer>
+    </main>
+
+    <section id="about-sheet" class="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="about-title">
+      <div class="sheet-card">
+        <h2 id="about-title">巷弄眉角</h2>
+        <ol>
+          <li>每回合選一格與 1～6 影響力，三方同時揭曉。</li>
+          <li>強度＝影響力＋上下左右自家地盤；里民大會讓支援加倍。</li>
+          <li>同強度就全部撤回。市場／廟口每回 2 分，公園／派出所 1 分；連成至少 3 格再加 2 分。</li>
+        </ol>
+        <p>素材完整署名請見 <a href="./ATTRIBUTION.md">ATTRIBUTION.md</a>。</p>
+        <button id="about-close" class="primary" type="button">懂了，回巷口</button>
+      </div>
+    </section>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
