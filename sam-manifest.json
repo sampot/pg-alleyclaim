@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "rev": "91d938d",
+  "files": [
+    "app.js",
+    "assets/audio/alley-loop.ogg",
+    "assets/audio/click.ogg",
+    "assets/audio/reveal.ogg",
+    "assets/audio/win.ogg",
+    "assets/fonts/Cubic_11.woff2",
+    "assets/images/city-tile.png",
+    "assets/licenses/blippy-bits.txt",
+    "assets/licenses/cubic-11-ofl.txt",
+    "assets/licenses/kenney-modern-city.txt",
+    "assets/licenses/kenney-ui-audio.txt",
+    "audio.js",
+    "functions.js",
+    "game.js",
+    "index.html",
+    "persist.js",
+    "styles.css"
+  ]
+}
